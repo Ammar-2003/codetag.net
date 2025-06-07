@@ -1,0 +1,80 @@
+{% load static %}
+{% if messages %}
+<div id="notification-container" class="fixed top-16 right-4 z-50 w-full max-w-xs space-y-4 mt-4">
+  {% for message in messages %}
+    <div class="notification-message flex items-start p-4 rounded-lg shadow-lg relative 
+      {% if message.tags == 'error' %}bg-red-50 text-red-700 border-l-4 border-red-500
+      {% elif message.tags == 'success' %}bg-green-50 text-green-700 border-l-4 border-green-500
+      {% elif message.tags == 'warning' %}bg-yellow-50 text-yellow-700 border-l-4 border-yellow-500
+      {% else %}bg-blue-50 text-blue-700 border-l-4 border-blue-500{% endif %}"
+      data-duration="12000" role="alert" aria-live="assertive">
+      
+      <div class="mr-3 mt-1 shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+          {% if message.tags == 'error' %}
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          {% elif message.tags == 'success' %}
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          {% elif message.tags == 'warning' %}
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          {% else %}
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          {% endif %}
+        </svg>
+      </div>
+
+      <span class="flex-1">{{ message|escape }}</span>
+
+      <button class="ml-4 text-lg font-bold text-gray-500 hover:text-gray-700 focus:outline-none absolute top-2 right-2" 
+              aria-label="Close notification"
+              onclick="this.parentElement.remove();">
+        &times;
+      </button>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+@keyframes slideIn {
+  0% { transform: translateX(120%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOut {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+.animate-slide-out {
+  animation: slideOut 0.3s ease-in forwards;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('notification-container');
+  const notifications = container.querySelectorAll('.notification-message');
+
+  notifications.forEach(notification => {
+    notification.classList.add('animate-slide-in');
+
+    const duration = parseInt(notification.getAttribute('data-duration')) || 12000;
+    
+    const autoDismiss = () => {
+      notification.classList.remove('animate-slide-in');
+      notification.classList.add('animate-slide-out');
+
+      setTimeout(() => {
+        notification.remove();
+        if (container.querySelectorAll('.notification-message').length === 0) {
+          container.remove();
+        }
+      }, 300);
+    };
+
+    setTimeout(autoDismiss, duration);
+  });
+});
+</script>
+{% endif %}

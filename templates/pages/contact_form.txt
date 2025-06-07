@@ -1,0 +1,11 @@
+New contact form submission received:
+
+Name: {{ name }}
+Email: {{ email }}
+Subject: {{ subject }}
+
+Message:
+{{ message }}
+
+---
+This email was sent from the contact form on codetag.net

@@ -1,0 +1,8 @@
+Dear {{ name }},
+
+Thank you for contacting codetag.net. We have received your message and we will get back to you as soon as possible.
+
+If you have any urgent inquiries, please don't hesitate to call our support line at +92 3196919119
+
+Best regards,
+  codetag.net 

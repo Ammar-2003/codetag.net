@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        Open to New Opportunities
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
+        Seeking full-time roles as a <span class="font-semibold text-indigo-600">{{ your_target_role }}</span>
+      </p>
+    </div>
+
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+      <!-- Professional Summary -->
+      <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          About Me
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          {{ your_short_bio }}
+        </p>
+      </div>
+      <div class="px-4 py-5 sm:p-6">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <!-- Key Skills -->
+          <div>
+            <h4 class="text-lg font-medium text-gray-900 mb-4">Core Competencies</h4>
+            <ul class="space-y-3">
+              {% for skill in key_skills %}
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">{{ skill }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+          <!-- Availability -->
+          <div>
+            <h4 class="text-lg font-medium text-gray-900 mb-4">Availability</h4>
+            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4">
+              <div class="flex">
+                <div class="flex-shrink-0">
+<svg class="h-5 w-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 2a1 1 0 100 2h8a1 1 0 100-2H6zM4 5a2 2 0 00-2 2v1h16V7a2 2 0 00-2-2H4zm14 4H2v7a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+</svg>
+
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-indigo-700">
+                    <span class="font-bold">Currently:</span> {{ your_availability_status }}<br>
+                    <span class="font-bold">Location Preference:</span> {{ your_location_preference }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- LinkedIn CTA -->
+            <div class="mt-6">
+              <a href="{{ your_linkedin_url }}" target="_blank" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                View Full Profile on LinkedIn
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <p class="mt-2 text-center text-sm text-gray-600">
+                Recruiters: I've enabled LinkedIn's #OpenToWork badge
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="mt-10 bg-white shadow overflow-hidden sm:rounded-lg">
+      <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Contact Me Directly
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          Prefer email? Fill out this form and I'll respond promptly.
+        </p>
+      </div>
+      <div class="px-4 py-5 sm:p-6">
+        <form method="post" class="space-y-6">
+          {% csrf_token %}
+          <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" name="name" id="name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" name="email" id="email" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="company" class="block text-sm font-medium text-gray-700">Company (optional)</label>
+              <input type="text" name="company" id="company" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+              <textarea id="message" name="message" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <p class="text-sm text-gray-500">
+              For fastest response, please message me on <a href="{{ your_linkedin_url }}" class="font-medium text-indigo-600 hover:text-indigo-500">LinkedIn</a>.
+            </p>
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Why LinkedIn Section -->
+    <div class="mt-10 bg-indigo-50 rounded-lg p-6">
+      <h3 class="text-lg font-medium text-indigo-900 mb-4">Why Connect on LinkedIn?</h3>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <svg class="h-6 w-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+              <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h4 class="text-sm font-medium text-indigo-900">Verified Experience</h4>
+            <p class="mt-1 text-sm text-indigo-700">View my complete work history with detailed role descriptions.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <svg class="h-6 w-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h4 class="text-sm font-medium text-indigo-900">Recommendations</h4>
+            <p class="mt-1 text-sm text-indigo-700">Read endorsements from colleagues and managers.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <svg class="h-6 w-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h4 class="text-sm font-medium text-indigo-900">Fast Response</h4>
+            <p class="mt-1 text-sm text-indigo-700">I check LinkedIn daily and can respond quickly to messages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
