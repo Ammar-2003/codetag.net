@@ -146,12 +146,17 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 # Cache settings (example using local memory cache)
-'''CACHES = {
+CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'https://codetag-net.onrender.com/',  # or use Redis URL from Render/Heroku etc.
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'core'  # change this to your app/project name
     }
-}'''
+}
+
 
 
 # Internationalization
