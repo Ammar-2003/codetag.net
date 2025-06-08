@@ -178,6 +178,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # The 'static' folder on the root level
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where collectstatic copies to
 # Mail settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
