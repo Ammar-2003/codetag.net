@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://codetag-net.onrender.com/']
+ALLOWED_HOSTS = ['codetag-net.onrender.com']
 # Application definition
 
 PRE_APPS = [
