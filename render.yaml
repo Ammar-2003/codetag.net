@@ -3,7 +3,7 @@ services:
     name: codetag.net
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn projectname.wsgi:application --bind 0.0.0.0:8000
+    startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:8000
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: projectname.settings
