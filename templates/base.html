@@ -35,7 +35,7 @@
       <div class="hidden md:flex md:mt-1 items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
         <a href="/" class="text-black hover:text-gray-600 transition-colors duration-200 text-[1rem]">Home</a>
         <a href="{% url 'blog:post_list' %}" class="text-black hover:text-gray-600 transition-colors duration-200 text-[1rem]">Blog</a>
-        <a href="/pages/hire-me/" class="text-black hover:text-gray-600 transition-colors duration-200 text-[1rem]">HireMe!</a>
+        <a href="{% url 'hire_me' %}" class="text-black hover:text-gray-600 transition-colors duration-200 text-[1rem]">HireMe!</a>
       </div>
     
       <!-- Right side elements -->
@@ -84,8 +84,8 @@
     <div id="mobile-menu" class="hidden md:hidden py-4">
       <div class="flex flex-col space-y-4">
         <a href="/" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">Home</a>
-        <a href="blog/" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">Blog</a>
-        <a href="/pages/hire-me/" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">HireMe!</a>
+        <a href="{% url 'blog:post_list' %}" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">Blog</a>
+        <a href="{% url 'hire_me' %}" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">HireMe!</a>
         
         <!-- Auth buttons in mobile menu -->
         {% if user.is_authenticated %}
@@ -191,9 +191,9 @@
                 <div>
                     <h3 class="text-gray-900 font-bold text-lg mb-4">Learn</h3>
                     <ul class="space-y-2">
-                        <li><a href="/" class="hover:text-gray-900 transition-colors">Python</a></li>
-                        <li><a href="/" class="hover:text-gray-900 transition-colors">Backend</a></li>
-                        <li><a href="/" class="hover:text-gray-900 transition-colors">More</a></li>
+                        <li><a href="{% url 'blog:post_list' %}" class="hover:text-gray-900 transition-colors">Python</a></li>
+                        <li><a href="{% url 'blog:post_list' %}" class="hover:text-gray-900 transition-colors">Backend</a></li>
+                        <li><a href="{% url 'blog:post_list' %}" class="hover:text-gray-900 transition-colors">More</a></li>
                     </ul>
                 </div>
 
