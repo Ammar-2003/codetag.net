@@ -121,17 +121,21 @@
 
           </div>
 
-          <div class="flex items-center justify-between">
-            <p class="text-sm text-gray-500">
-              For fastest response, please message me on <a href="{{ your_linkedin_url }}" class="font-medium text-indigo-600 hover:text-indigo-500">LinkedIn</a>.
-            </p>
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
+  <p class="text-sm text-gray-600 text-center sm:text-left">
+    For fastest response, please message me on 
+    <a href="{{ your_linkedin_url }}" target="_blank" rel="noopener noreferrer" class="font-medium text-indigo-600 hover:text-indigo-500 underline underline-offset-2">
+      LinkedIn
+    </a>.
+  </p>
+
+  <button 
+    type="submit" 
+    class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
+  >
+    Send Message
+  </button>
+</div>
 
     <!-- Why LinkedIn Section -->
     <div class="mt-10 bg-indigo-50 rounded-lg p-6">
