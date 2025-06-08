@@ -146,12 +146,12 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 # Cache settings (example using local memory cache)
-CACHES = {
+'''CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',
     }
-}
+}'''
 
 
 # Internationalization
