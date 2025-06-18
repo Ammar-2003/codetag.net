@@ -29,7 +29,7 @@ class HireMeView(FormView):
             ],
             'your_availability_status': 'Available immediately',
             'your_location_preference': 'Onsite in UAE',
-            'your_linkedin_url': 'https://www.linkedin.com/in/muhammad-ammar-335261321/'
+            'your_linkedin_url': 'https://www.linkedin.com/in/muhammad-ammar1/'
         })
         return context
 
