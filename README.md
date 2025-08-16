@@ -1,6 +1,6 @@
 # codetag.net
 
-Codetag.net is my first serious project — an open-source blog website built to share what I've learned in programming. While I primarily focus on backend development, I also enjoy crafting clean user interfaces and somehow manage to get it done! I’ve tried my best to organize the code professionally. Feedback is always welcome — I’m open to tips and suggestions to keep improving!
+Codetag.net: — a blog website built to share what I've learned in programming. While I primarily focus on backend development, I also enjoy crafting clean user interfaces and somehow manage to get it done! I’ve tried my best to organize the code professionally. Feedback is always welcome — I’m open to tips and suggestions to keep improving!
 
 ---
 
